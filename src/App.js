@@ -1,23 +1,32 @@
-import logo from './logo.svg';
-import './App.css';
+import React from "react";
+import "./App.css";
+import MaterialDashboard from "./Material/materialdashboard";
+import Dashboard from "./Material/dashboard";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import Tables from "./Material/tables";
+import RTL from "./Material/rtl";
+import Notifications from "./Material/notfications";
+import SignUp from "./Material/signup";
+import SignIn from "./Material/signin";
+import Billing from "./Material/billing";
+import Profile from "./Material/profile";
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <Router>
+        <Routes>
+          <Route path="/" element={<MaterialDashboard />} />
+          <Route path="/dashboard" element={<Dashboard />} />
+          <Route path="/tables" element={<Tables />} />
+          <Route path="/rtl" element={<RTL />} />
+          <Route path="/notifications" element={<Notifications />} />
+          <Route path="/signup" element={<SignUp />} />
+          <Route path="/signin" element={<SignIn />} />
+          <Route path="/billing" element={<Billing />} />
+          <Route path="/profile" element={<Profile />} />
+        </Routes>
+      </Router>
     </div>
   );
 }
